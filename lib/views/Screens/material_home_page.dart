@@ -12,6 +12,7 @@ class ANhomepage extends StatelessWidget {
     return Scaffold(
       key: scaffoldkey,
       appBar: AppBar(
+        leading: Container(),
         title: const Text("Android"),
         centerTitle: true,
         actions: [
@@ -51,13 +52,15 @@ class ANhomepage extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                showBottomSheet(
+                showModalBottomSheet(
                   context: context,
-
                   builder: (context) => Container(
-                    height: 200,
+                    height: 250,
                     decoration: const BoxDecoration(
-                      color: Colors.greenAccent,
+                      color: Colors.black38,
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(25),
+                      ),
                     ),
                   ),
                 );
