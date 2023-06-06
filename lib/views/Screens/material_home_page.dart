@@ -3,11 +3,14 @@ import 'package:platform_convertor_app/controllers/convertor_controller.dart';
 import 'package:provider/provider.dart';
 
 class ANhomepage extends StatelessWidget {
-  const ANhomepage({super.key});
+  ANhomepage({super.key});
+
+  GlobalKey<ScaffoldState> scaffoldkey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldkey,
       appBar: AppBar(
         title: const Text("Android"),
         centerTitle: true,
@@ -27,10 +30,40 @@ class ANhomepage extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          children: const [
-            Spacer(),
-            Text("Android"),
-            Spacer(),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                scaffoldkey.currentState!.showBottomSheet(
+                  (context) => Container(
+                    height: 200,
+                    decoration: const BoxDecoration(
+                      color: Colors.blueAccent,
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(20),
+                      ),
+                    ),
+                  ),
+                );
+              },
+              child: const Text("Show Bottom Sheet"),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                showBottomSheet(
+                  context: context,
+
+                  builder: (context) => Container(
+                    height: 200,
+                    decoration: const BoxDecoration(
+                      color: Colors.greenAccent,
+                    ),
+                  ),
+                );
+              },
+              child: const Text("Show Bottom Sheet"),
+            ),
           ],
         ),
       ),

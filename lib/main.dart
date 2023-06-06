@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
               useMaterial3: true,
             ),
             routes: {
-              '/': (context) => const ANhomepage(),
+              '/': (context) => ANhomepage(),
             },
           )
         : CupertinoApp(
