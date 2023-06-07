@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_convertor_app/controllers/convertor_controller.dart';
+import 'package:platform_convertor_app/utils/routes_utils.dart';
 import 'package:platform_convertor_app/views/Screens/cupertino_home_page.dart';
 import 'package:platform_convertor_app/views/Screens/material_home_page.dart';
 import 'package:provider/provider.dart';
@@ -35,13 +36,13 @@ class MyApp extends StatelessWidget {
               useMaterial3: true,
             ),
             routes: {
-              '/': (context) => ANhomepage(),
+              allroutes.HomePage: (context) => ANhomepage(),
             },
           )
         : CupertinoApp(
             debugShowCheckedModeBanner: false,
             routes: {
-              '/': (context) => const IOhomepage(),
+              allroutes.CupertinoHomePage: (context) => const IOhomepage(),
             },
           );
   }

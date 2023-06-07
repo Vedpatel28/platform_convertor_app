@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:platform_convertor_app/controllers/convertor_controller.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class ANhomepage extends StatelessWidget {
   ANhomepage({super.key});
 
@@ -65,8 +66,9 @@ class ANhomepage extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text("Show Bottom Sheet"),
+              child: const Text("Show Modal Bottom Sheet"),
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),

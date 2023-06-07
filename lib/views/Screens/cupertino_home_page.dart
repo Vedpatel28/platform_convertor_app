@@ -24,10 +24,23 @@ class IOhomepage extends StatelessWidget {
       ),
       child: Center(
         child: Column(
-          children: const [
-            Spacer(),
-            Text("IOS"),
-            Spacer(),
+          children: [
+            CupertinoButton.filled(
+              onPressed: () {
+                showCupertinoDialog(
+                  context: context,
+                  builder: (context) => CupertinoAlertDialog(
+                    content: SizedBox(
+                      height: 200,
+                      child: CupertinoTimerPicker(
+                        onTimerDurationChanged: (duration) {},
+                      ),
+                    ),
+                  ),
+                );
+              },
+              child: const Text("Date Select"),
+            ),
           ],
         ),
       ),
