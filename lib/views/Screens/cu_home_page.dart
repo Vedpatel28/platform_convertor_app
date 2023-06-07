@@ -1,9 +1,11 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/cupertino.dart';
 import 'package:platform_convertor_app/controllers/convertor_controller.dart';
 import 'package:provider/provider.dart';
 
-class IOhomepage extends StatelessWidget {
-  const IOhomepage({super.key});
+class cu_home_page extends StatelessWidget {
+  const cu_home_page({super.key});
 
   @override
   Widget build(BuildContext context) {
