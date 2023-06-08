@@ -65,7 +65,7 @@ class ma_home_page extends StatelessWidget {
                 ],
               ),
             ),
-            const Expanded(
+            Expanded(
               flex: 10,
               child: TabBarView(
                 clipBehavior: Clip.antiAliasWithSaveLayer,
