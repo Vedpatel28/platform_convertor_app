@@ -22,14 +22,14 @@ class settingpagecontroller extends ChangeNotifier {
     return darktheme;
   }
 
-  bool get getprofile {
-    if (pref.getBool(_varprofile) ?? false) {
-      profileSwitch = pref.getBool(_varprofile)!;
-    } else {
-      pref.setBool(_varprofile, profileSwitch);
-    }
-    return profileSwitch;
-  }
+  // bool get getprofile {
+  //   if (pref.getBool(_varprofile) ?? false) {
+  //     profileSwitch = pref.getBool(_varprofile)!;
+  //   } else {
+  //     pref.setBool(_varprofile, profileSwitch);
+  //   }
+  //   return profileSwitch;
+  // }
 
   Expandprofile(){
     profileSwitch = !profileSwitch;

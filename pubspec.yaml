@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider:
   shared_preferences:
+  image_picker:
   google_fonts:
   device_preview:
 

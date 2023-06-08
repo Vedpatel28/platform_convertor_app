@@ -16,7 +16,7 @@ class ma_setting_page extends StatelessWidget {
         SizedBox(
           width: s.width * 0.9,
           height: (Provider.of<settingpagecontroller>(context, listen: false)
-                  .getprofile)
+                  .profileSwitch)
               ? s.height * 0.5
               : s.height * 0.1,
           child: Column(
@@ -54,7 +54,7 @@ class ma_setting_page extends StatelessWidget {
                   Switch(
                     value: Provider.of<settingpagecontroller>(context,
                             listen: false)
-                        .getprofile,
+                        .profileSwitch,
                     onChanged: (value) {
                       Provider.of<settingpagecontroller>(context, listen: false)
                           .Expandprofile();
@@ -63,7 +63,7 @@ class ma_setting_page extends StatelessWidget {
                 ],
               ),
               (Provider.of<settingpagecontroller>(context, listen: false)
-                      .getprofile)
+                      .profileSwitch)
                   ? SingleChildScrollView(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -99,6 +99,7 @@ class ma_setting_page extends StatelessWidget {
                                 height: s.height * 0.06,
                                 width: s.width * 0.35,
                                 child: TextFormField(
+
                                   decoration: const InputDecoration(
                                     border: InputBorder.none,
                                     hintText: 'Enter your Bio...',

@@ -52,8 +52,7 @@ class MyApp extends StatelessWidget {
             ),
             routes: {
               allroutes.MaHomePage: (context) => ma_home_page(),
-              allroutes.MaAddContactPage: (context) =>
-                  const ma_add_contact_page(),
+              allroutes.MaAddContactPage: (context) => ma_add_contact_page(),
               allroutes.MaCallsPage: (context) => const ma_call_page(),
               allroutes.MaChatsPage: (context) => const ma_chat_page(),
               allroutes.MaSettingPage: (context) => const ma_setting_page(),
