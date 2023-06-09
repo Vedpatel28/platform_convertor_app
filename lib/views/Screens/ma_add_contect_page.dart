@@ -137,7 +137,19 @@ class ma_add_contact_page extends StatelessWidget {
                     // crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) => const AlertDialog(
+                              content: TimePickerDialog(
+                                initialTime: TimeOfDay(
+                                  hour: 0,
+                                  minute: 0,
+                                ),
+                              ),
+                            ),
+                          );
+                        },
                         icon: const Icon(
                           Icons.access_time_rounded,
                         ),
