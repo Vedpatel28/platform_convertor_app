@@ -50,8 +50,8 @@ class ma_home_page extends StatelessWidget {
                 onTap: (value) {},
                 tabs: const [
                   Tab(
-                    icon:
-                        Icon(Icons.person_add_alt_outlined, color: Colors.grey),
+                    icon: Icon(Icons.person_add_alt_outlined,
+                        color: Colors.grey),
                   ),
                   Tab(
                     text: "CHATS",
@@ -75,29 +75,14 @@ class ma_home_page extends StatelessWidget {
                   // 1 Tab
                   ma_add_contact_page(),
                   // 2 Tab
-                  ma_chat_page(),
+                  const ma_chat_page(),
                   // 3 Tab
-                  ma_call_page(),
+                  const ma_call_page(),
                   // 4 Tab
-                  ma_setting_page(),
+                  const ma_setting_page(),
                 ],
               ),
             ),
-            // PageView(
-            //   onPageChanged: (index) {},
-            //   scrollDirection: Axis.horizontal,
-            //   children: [
-            //     Container(
-            //       color: Colors.blueAccent,
-            //     ),
-            //     Container(
-            //       color: Colors.grey,
-            //     ),
-            //     Container(
-            //       color: Colors.amber,
-            //     ),
-            //   ],
-            // ),
           ],
         ),
       ),

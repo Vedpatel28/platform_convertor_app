@@ -75,14 +75,14 @@ class ContactStorController extends ChangeNotifier {
   //   return allProContact;
   // }
 
-  void addProContact({required String proName, required String proBio}) {
-    _allProName = pref.getStringList(_sfProName) ?? [];
-    _allProBio = pref.getStringList(_sfProBio) ?? [];
-
-    _allName.add(proName);
-    _allContact.add(proBio);
-
-    pref.setStringList(_sfProName, _allProName);
-    pref.setStringList(_sfProBio, _allProBio);
-  }
+  // void addProContact({required String proName, required String proBio}) {
+  //   _allProName = pref.getStringList(_sfProName) ?? [];
+  //   _allProBio = pref.getStringList(_sfProBio) ?? [];
+  //
+  //   _allName.add(proName);
+  //   _allContact.add(proBio);
+  //
+  //   pref.setStringList(_sfProName, _allProName);
+  //   pref.setStringList(_sfProBio, _allProBio);
+  // }
 }
