@@ -7,6 +7,6 @@ class ma_chat_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Placeholder();
+    return Container();
   }
 }
