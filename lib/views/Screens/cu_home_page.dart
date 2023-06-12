@@ -9,43 +9,50 @@ class cu_home_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        middle: const Text("IOS"),
-        trailing: Consumer<convertplatform>(
-          builder: (context, provider, child) => Transform.scale(
-            scale: 0.8,
-            child: CupertinoSwitch(
-              value: provider.isAndroid,
-              onChanged: (value) {
-                provider.mechangeplatform(cuplatform: value);
-              },
-            ),
+    return CupertinoTabScaffold(
+      tabBar: CupertinoTabBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.person_add),
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.chat_bubble_2),
+            label: "CHATS",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.phone),
+            label: "CALLS",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.settings),
+            label: "SETTING",
+          ),
+        ],
       ),
-      child: Center(
-        child: Column(
-          children: [
-            CupertinoButton.filled(
-              onPressed: () {
-                showCupertinoDialog(
-                  context: context,
-                  builder: (context) => CupertinoAlertDialog(
-                    content: SizedBox(
-                      height: 200,
-                      child: CupertinoTimerPicker(
-                        onTimerDurationChanged: (duration) {},
-                      ),
+      tabBuilder: (context, index) {
+        return CupertinoTabView(
+          builder: (context) {
+            return CupertinoPageScaffold(
+              navigationBar: CupertinoNavigationBar(
+                middle: const Text("IOS"),
+                trailing: Consumer<convertplatform>(
+                  builder: (context, provider, child) => Transform.scale(
+                    scale: 0.8,
+                    child: CupertinoSwitch(
+                      value: provider.isAndroid,
+                      onChanged: (value) {
+                        provider.mechangeplatform(cuplatform: value);
+                      },
                     ),
                   ),
-                );
-              },
-              child: const Text("Date Select"),
-            ),
-          ],
-        ),
-      ),
+                ),
+              ),
+              child: const Center(
+              ),
+            );
+          },
+        );
+      },
     );
   }
 }

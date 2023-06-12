@@ -41,51 +41,58 @@ class ma_home_page extends StatelessWidget {
           ],
         ),
         body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           child: Column(
             children: [
-              Container(
-                height: s.height*0.05,
-                width: s.width,
-                // color: Colors.grey,
-                child: TabBar(
-                  dragStartBehavior: DragStartBehavior.start,
-                  indicatorSize: TabBarIndicatorSize.label,
-                  onTap: (value) {},
-                  tabs: const [
-                    Tab(
-                      icon: Icon(Icons.person_add_alt_outlined,
-                          color: Colors.grey),
-                    ),
-                    Tab(
-                      text: "CHATS",
-                    ),
-                    Tab(
-                      text: "CALLS",
-                    ),
-                    Tab(
-                      text: "SETTING",
-                    ),
-                  ],
+              SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: SizedBox(
+                  height: s.height*0.05,
+                  width: s.width,
+                  // color: Colors.grey,
+                  child: TabBar(
+                    dragStartBehavior: DragStartBehavior.start,
+                    indicatorSize: TabBarIndicatorSize.label,
+                    onTap: (value) {},
+                    tabs: const [
+                      Tab(
+                        icon: Icon(Icons.person_add_alt_outlined,
+                            color: Colors.grey),
+                      ),
+                      Tab(
+                        text: "CHATS",
+                      ),
+                      Tab(
+                        text: "CALLS",
+                      ),
+                      Tab(
+                        text: "SETTING",
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              Container(
-                height: s.height*0.82,
-                // width: s.width*0.5,
-                // color: Colors.grey,
-                child: TabBarView(
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  dragStartBehavior: DragStartBehavior.down,
-                  viewportFraction: 2,
-                  children: [
-                    // 1 Tab
-                    ma_add_contact_page(),
-                    // 2 Tab
-                    const ma_chat_page(),
-                    // 3 Tab
-                    const ma_call_page(),
-                    // 4 Tab
-                    const ma_setting_page(),
-                  ],
+              SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: SizedBox(
+                  height: s.height*0.82,
+                  // width: s.width*0.5,
+                  // color: Colors.grey,
+                  child: TabBarView(
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    dragStartBehavior: DragStartBehavior.down,
+                    viewportFraction: 2,
+                    children: [
+                      // 1 Tab
+                      ma_add_contact_page(),
+                      // 2 Tab
+                      ma_chat_page(),
+                      // 3 Tab
+                      const ma_call_page(),
+                      // 4 Tab
+                      const ma_setting_page(),
+                    ],
+                  ),
                 ),
               ),
             ],
