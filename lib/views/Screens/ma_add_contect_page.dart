@@ -1,12 +1,10 @@
-// ignore_for_file: camel_case_types, must_be_immutable
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:platform_convertor_app/controllers/contact_controllers.dart';
 import 'package:platform_convertor_app/utils/routes_utils.dart';
 import 'package:platform_convertor_app/views/modals/global_variables.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class ma_add_contact_page extends StatelessWidget {
   ma_add_contact_page({super.key});
 
@@ -21,11 +19,9 @@ class ma_add_contact_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
-    return SizedBox(
-      // height: s.height * 0.8,
+    return SingleChildScrollView(
       child: Form(
         key: formKey,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
         child: Column(
           children: [
             SizedBox(height: s.height * 0.02),
@@ -119,8 +115,7 @@ class ma_add_contact_page extends StatelessWidget {
                 onFieldSubmitted: (value) {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    Provider.of<ContactStorController>(context).addContact(
-                        name: _name!, contact: _contact!, chat: _chat!);
+                    Provider.of<ContactStorController>(context).addContact(name: _name!, contact: _contact!, chat: _chat!);
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text("SuccessFull Validate"),
@@ -179,49 +174,33 @@ class ma_add_contact_page extends StatelessWidget {
               ),
             ),
             // Pick Time
-            GestureDetector(
-              onTap: () {
-                // showDialog(
-                //   context: context,
-                //   builder: (context) => const AlertDialog(
-                //     title: Text("Time"),
-                //     content: TimePickerDialog(
-                //       initialTime: TimeOfDay(
-                //         hour: 0,
-                //         minute: 0,
-                //       ),
-                //     ),
-                //   ),
-                // );
-              },
-              child: SizedBox(
-                height: s.height * 0.05,
-                width: s.width * 0.95,
-                child: Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (context) => const AlertDialog(
-                            title: Text("Select Time"),
-                            content: TimePickerDialog(
-                              initialTime: TimeOfDay(
-                                hour: 0,
-                                minute: 0,
-                              ),
+            SizedBox(
+              height: s.height * 0.05,
+              width: s.width * 0.95,
+              child: Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => const AlertDialog(
+                          title: Text("Select Time"),
+                          content: TimePickerDialog(
+                            initialTime: TimeOfDay(
+                              hour: 0,
+                              minute: 0,
                             ),
                           ),
-                        );
-                      },
-                      icon: const Icon(
-                        Icons.access_time_rounded,
-                      ),
+                        ),
+                      );
+                    },
+                    icon: const Icon(
+                      Icons.access_time_rounded,
                     ),
-                    SizedBox(height: s.height * 0.02),
-                    const Text("Pick Time")
-                  ],
-                ),
+                  ),
+                  SizedBox(height: s.height * 0.02),
+                  const Text("Pick Time")
+                ],
               ),
             ),
             // Save Button
@@ -229,8 +208,7 @@ class ma_add_contact_page extends StatelessWidget {
               onPressed: () {
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.save();
-                  Provider.of<ContactStorController>(context).addContact(
-                      name: _name!, contact: _contact!, chat: _chat!);
+                  Provider.of<ContactStorController>(context).addContact(name: _name!, contact: _contact!, chat: _chat!);
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text("SuccessFull Validate"),

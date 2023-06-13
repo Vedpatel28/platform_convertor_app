@@ -21,6 +21,7 @@ class ma_home_page extends StatelessWidget {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
+        extendBody: true,
         key: scaffoldkey,
         appBar: AppBar(
           leading: Container(),
@@ -47,7 +48,7 @@ class ma_home_page extends StatelessWidget {
               SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: SizedBox(
-                  height: s.height*0.05,
+                  height: s.height * 0.05,
                   width: s.width,
                   // color: Colors.grey,
                   child: TabBar(
@@ -56,8 +57,7 @@ class ma_home_page extends StatelessWidget {
                     onTap: (value) {},
                     tabs: const [
                       Tab(
-                        icon: Icon(Icons.person_add_alt_outlined,
-                            color: Colors.grey),
+                        icon: Icon(Icons.person_add_alt_outlined, color: Colors.grey),
                       ),
                       Tab(
                         text: "CHATS",
@@ -75,7 +75,7 @@ class ma_home_page extends StatelessWidget {
               SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: SizedBox(
-                  height: s.height*0.82,
+                  height: s.height * 0.82,
                   // width: s.width*0.5,
                   // color: Colors.grey,
                   child: TabBarView(
