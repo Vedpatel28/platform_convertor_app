@@ -8,4 +8,8 @@ class allroutes {
   static String MaSettingPage = 'ma_setting_page';
 
   static String CuHomePage = '/';
+  static String CuSettingPage = 'cu_setting_page';
+  static String CuAddContactPage = 'cu_add_contact_page';
+  static String CuCallsPage = 'cu_calls_page';
+  static String CuChatsPage = 'cu_chats_page';
 }

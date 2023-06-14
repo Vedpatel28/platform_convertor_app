@@ -52,12 +52,9 @@ class ma_setting_page extends StatelessWidget {
                   ),
                   const Spacer(),
                   Switch(
-                    value: Provider.of<settingpagecontroller>(context,
-                            listen: false)
-                        .profileSwitch,
+                    value: Provider.of<settingpagecontroller>(context,listen: false).profileSwitch,
                     onChanged: (value) {
-                      Provider.of<settingpagecontroller>(context, listen: false)
-                          .Expandprofile();
+                      Provider.of<settingpagecontroller>(context, listen: false).Expandprofile();
                     },
                   ),
                 ],
@@ -83,6 +80,7 @@ class ma_setting_page extends StatelessWidget {
                                 height: s.height * 0.06,
                                 width: s.width * 0.35,
                                 child: TextFormField(
+                                  textAlign: TextAlign.center,
                                   decoration: const InputDecoration(
                                     border: InputBorder.none,
                                     hintText: 'Enter your name...',
@@ -99,7 +97,7 @@ class ma_setting_page extends StatelessWidget {
                                 height: s.height * 0.06,
                                 width: s.width * 0.35,
                                 child: TextFormField(
-
+                                  textAlign: TextAlign.center,
                                   decoration: const InputDecoration(
                                     border: InputBorder.none,
                                     hintText: 'Enter your Bio...',
@@ -109,9 +107,7 @@ class ma_setting_page extends StatelessWidget {
                             ],
                           ),
                           Row(
-                            children: [
-
-                            ],
+                            children: [],
                           ),
                         ],
                       ),

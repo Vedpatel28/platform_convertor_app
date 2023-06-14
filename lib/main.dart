@@ -4,7 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:platform_convertor_app/controllers/convertor_controller.dart';
 import 'package:platform_convertor_app/controllers/setting_controller.dart';
 import 'package:platform_convertor_app/utils/routes_utils.dart';
+import 'package:platform_convertor_app/views/Screens/cu_add_contact_page.dart';
+import 'package:platform_convertor_app/views/Screens/cu_calls_page.dart';
+import 'package:platform_convertor_app/views/Screens/cu_chats_page.dart';
 import 'package:platform_convertor_app/views/Screens/cu_home_page.dart';
+import 'package:platform_convertor_app/views/Screens/cu_setting_page.dart';
 import 'package:platform_convertor_app/views/Screens/ma_add_contect_page.dart';
 import 'package:platform_convertor_app/views/Screens/ma_calls_page.dart';
 import 'package:platform_convertor_app/views/Screens/ma_chats_page.dart';
@@ -54,14 +58,24 @@ class MyApp extends StatelessWidget {
               allroutes.MaHomePage: (context) => ma_home_page(),
               allroutes.MaAddContactPage: (context) => ma_add_contact_page(),
               allroutes.MaCallsPage: (context) => const ma_call_page(),
-              allroutes.MaChatsPage: (context) =>  ma_chat_page(),
+              allroutes.MaChatsPage: (context) => ma_chat_page(),
               allroutes.MaSettingPage: (context) => const ma_setting_page(),
             },
           )
         : CupertinoApp(
             debugShowCheckedModeBanner: false,
+            theme: CupertinoThemeData(
+              brightness: Provider.of<settingpagecontroller>(context).getTheme
+                  ? Brightness.dark
+                  : Brightness.light,
+            ),
             routes: {
               allroutes.CuHomePage: (context) => const cu_home_page(),
+              allroutes.CuSettingPage: (context) => const cu_setting_page(),
+              allroutes.CuAddContactPage: (context) =>
+                  const cu_add_contact_page(),
+              allroutes.CuCallsPage: (context) => const cu_calls_page(),
+              allroutes.CuChatsPage: (context) => const cu_chats_page(),
             },
           );
   }

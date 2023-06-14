@@ -1,10 +1,11 @@
+// ignore_for_file: must_be_immutable, camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:platform_convertor_app/controllers/contact_controllers.dart';
 import 'package:platform_convertor_app/utils/routes_utils.dart';
 import 'package:platform_convertor_app/views/modals/global_variables.dart';
 import 'package:provider/provider.dart';
 
-// ignore: must_be_immutable
 class ma_add_contact_page extends StatelessWidget {
   ma_add_contact_page({super.key});
 
