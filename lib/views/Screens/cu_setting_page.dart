@@ -33,10 +33,10 @@ class cu_setting_page extends StatelessWidget {
             SizedBox(
               width: s.width * 0.9,
               height:
-              (Provider.of<settingpagecontroller>(context, listen: false)
-                  .profileSwitch)
-                  ? s.height * 0.5
-                  : s.height * 0.1,
+                  (Provider.of<settingpagecontroller>(context, listen: false)
+                          .profileSwitch)
+                      ? s.height * 0.42
+                      : s.height * 0.1,
               child: Column(
                 children: [
                   SizedBox(height: s.height * 0.01),
@@ -72,91 +72,90 @@ class cu_setting_page extends StatelessWidget {
                       const Spacer(),
                       CupertinoSwitch(
                         value: Provider.of<settingpagecontroller>(context,
-                            listen: true)
+                                listen: true)
                             .profileSwitch,
                         onChanged: (value) {
                           Provider.of<settingpagecontroller>(context,
-                              listen: false)
+                                  listen: false)
                               .Expandprofile();
                         },
                       ),
                     ],
                   ),
                   (Provider.of<settingpagecontroller>(context, listen: false)
-                      .profileSwitch)
+                          .profileSwitch)
                       ? SingleChildScrollView(
-                    child: Column(
-                      // crossAxisAlignment: CrossAxisAlignment.center,
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          children: [
-                            SizedBox(height: s.height * 0.02),
-                            Container(
-                              height: s.height * 0.16,
-                              width: s.width * 0.33,
-                              decoration: BoxDecoration(
-                                color: CupertinoColors.link,
-                                borderRadius: BorderRadius.circular(200),
+                          child: Column(
+                            // crossAxisAlignment: CrossAxisAlignment.center,
+                            // mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Column(
+                                children: [
+                                  SizedBox(height: s.height * 0.02),
+                                  Container(
+                                    height: s.height * 0.16,
+                                    width: s.width * 0.33,
+                                    decoration: BoxDecoration(
+                                      color: CupertinoColors.link,
+                                      borderRadius: BorderRadius.circular(200),
+                                    ),
+                                  ),
+                                  SizedBox(height: s.height * 0.02),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        // height: s.height*0.1,
+                                        width: s.width * 0.35,
+                                        child: const CupertinoTextField(
+                                          textInputAction: TextInputAction.next,
+                                          suffixMode:
+                                              OverlayVisibilityMode.notEditing,
+                                          style: TextStyle(
+                                              color:
+                                                  CupertinoColors.inactiveGray),
+                                          textAlign: TextAlign.center,
+                                          suffix: Text(
+                                            "Enter your name...",
+                                            style: TextStyle(
+                                              color:
+                                                  CupertinoColors.inactiveGray,
+                                            ),
+                                          ),
+                                          decoration: BoxDecoration(),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        // height: s.height*0.1,
+                                        width: s.width * 0.3,
+                                        child: const CupertinoTextField(
+                                          textInputAction: TextInputAction.next,
+                                          suffixMode:
+                                              OverlayVisibilityMode.notEditing,
+                                          style: TextStyle(
+                                              color:
+                                                  CupertinoColors.inactiveGray),
+                                          textAlign: TextAlign.center,
+                                          suffix: Text(
+                                            "Enter your bio...",
+                                            style: TextStyle(
+                                              color:
+                                                  CupertinoColors.inactiveGray,
+                                            ),
+                                          ),
+                                          decoration: BoxDecoration(),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
-                            ),
-                            SizedBox(height: s.height * 0.02),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  // height: s.height*0.1,
-                                  width: s.width * 0.35,
-                                  child: const CupertinoTextField(
-                                    textInputAction: TextInputAction.next,
-                                    suffixMode:
-                                    OverlayVisibilityMode.notEditing,
-                                    style: TextStyle(
-                                        color:
-                                        CupertinoColors.inactiveGray),
-                                    textAlign: TextAlign.center,
-                                    suffix: Text(
-                                      "Enter your name...",
-                                      style: TextStyle(
-                                        color: CupertinoColors
-                                            .inactiveGray,
-                                      ),
-                                    ),
-                                    decoration: BoxDecoration(),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  // height: s.height*0.1,
-                                  width: s.width * 0.3,
-                                  child: const CupertinoTextField(
-                                    textInputAction: TextInputAction.next,
-                                    suffixMode:
-                                    OverlayVisibilityMode.notEditing,
-                                    style: TextStyle(
-                                        color:
-                                        CupertinoColors.inactiveGray),
-                                    textAlign: TextAlign.center,
-                                    suffix: Text(
-                                      "Enter your bio...",
-                                      style: TextStyle(
-                                        color: CupertinoColors
-                                            .inactiveGray,
-                                      ),
-                                    ),
-                                    decoration: BoxDecoration(),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-
-                        /*
+                              /*
                               SizedBox(height: s.height * 0.02),
                               Container(
                                 height: s.height * 0.4,
@@ -193,9 +192,24 @@ class cu_setting_page extends StatelessWidget {
                               Row(
                                 children: [],
                               ),*/
-                      ],
-                    ),
-                  )
+
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  CupertinoButton(
+                                    child: const Text("SAVE"),
+                                    onPressed: () {},
+                                  ),
+                                  CupertinoButton(
+                                    child: const Text("CLEAR"),
+                                    onPressed: () {},
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        )
                       : const SizedBox(),
                 ],
               ),
@@ -237,11 +251,11 @@ class cu_setting_page extends StatelessWidget {
                     const Spacer(),
                     CupertinoSwitch(
                       value: Provider.of<settingpagecontroller>(context,
-                          listen: true)
+                              listen: true)
                           .getTheme,
                       onChanged: (value) {
                         Provider.of<settingpagecontroller>(context,
-                            listen: false)
+                                listen: false)
                             .changetheme();
                       },
                     ),
