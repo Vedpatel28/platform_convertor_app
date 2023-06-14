@@ -17,8 +17,8 @@ samples, guidance on mobile development, and a full API reference.
 
 <br>
 👉 Android App Material Design 
-<br>
 
+<br>
 <img src = "https://github.com/Vedpatel28/platform_convertor_app/assets/130833918/3c029053-4b59-475d-b203-16d49b1a9b09" height = "400"></img>
 <img src = "https://github.com/Vedpatel28/platform_convertor_app/assets/130833918/980ba874-f20d-47e1-9976-ad9afe67ae22" height = "400"></img>
 <img src = "https://github.com/Vedpatel28/platform_convertor_app/assets/130833918/130851c6-df50-4572-8c84-f9f12245dc5c" height = "400"></img>
@@ -31,8 +31,8 @@ samples, guidance on mobile development, and a full API reference.
 
 <br>
 👉 IOS App Cupertino Design 
-<br>
 
+<br>
 <img src = "https://github.com/Vedpatel28/platform_convertor_app/assets/130833918/db542c23-c944-41de-b5e8-1efad54cb871" height = "400"></img>
 <img src = "" height = "400"></img>
 <img src = "" height = "400"></img>
