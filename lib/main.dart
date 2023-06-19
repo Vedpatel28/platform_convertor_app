@@ -32,11 +32,12 @@ void main() async {
           create: (context) => settingpagecontroller(pref: pref),
         )
       ],
-      // child: DevicePreview(
-      //   builder: (context) =>
-      child: const MyApp(),
+      child: DevicePreview(
+        builder: (context) =>
+            // child:
+            const MyApp(),
+      ),
     ),
-    // ),
   );
 }
 
@@ -50,9 +51,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               useMaterial3: true,
-              brightness: Provider.of<settingpagecontroller>(context).getTheme
-                  ? Brightness.dark
-                  : Brightness.light,
+              brightness: Provider.of<settingpagecontroller>(context).getTheme ? Brightness.dark : Brightness.light,
             ),
             routes: {
               allroutes.MaHomePage: (context) => ma_home_page(),
@@ -65,15 +64,12 @@ class MyApp extends StatelessWidget {
         : CupertinoApp(
             debugShowCheckedModeBanner: false,
             theme: CupertinoThemeData(
-              brightness: Provider.of<settingpagecontroller>(context).getTheme
-                  ? Brightness.dark
-                  : Brightness.light,
+              brightness: Provider.of<settingpagecontroller>(context).getTheme ? Brightness.dark : Brightness.light,
             ),
             routes: {
               allroutes.CuHomePage: (context) => const cu_home_page(),
               allroutes.CuSettingPage: (context) => const cu_setting_page(),
-              allroutes.CuAddContactPage: (context) =>
-                  const cu_add_contact_page(),
+              allroutes.CuAddContactPage: (context) => const cu_add_contact_page(),
               allroutes.CuCallsPage: (context) => const cu_calls_page(),
               allroutes.CuChatsPage: (context) => const cu_chats_page(),
             },

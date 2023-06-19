@@ -32,19 +32,17 @@ class cu_setting_page extends StatelessWidget {
             SizedBox(height: s.height * 0.15),
             SizedBox(
               width: s.width * 0.9,
-              height:
-                  (Provider.of<settingpagecontroller>(context, listen: false)
-                          .profileSwitch)
-                      ? s.height * 0.42
-                      : s.height * 0.1,
+              height: (Provider.of<settingpagecontroller>(context, listen: false).profileSwitch) ? s.height * 0.42 : s.height * 0.1,
               child: Column(
                 children: [
                   SizedBox(height: s.height * 0.01),
                   Row(
                     children: [
                       SizedBox(width: s.width * 0.05),
-                      const Icon(CupertinoIcons.person,
-                          color: CupertinoColors.activeGreen, size: 30),
+                      const Icon(
+                        CupertinoIcons.person,
+                        size: 30,
+                      ),
                       SizedBox(width: s.width * 0.06),
                       // Profile / Update Profile Data
                       const Text.rich(
@@ -61,29 +59,21 @@ class cu_setting_page extends StatelessWidget {
                             // Change Theme
                             TextSpan(
                               text: 'Update Profile Data',
-                              style: TextStyle(
-                                  color: CupertinoColors.inactiveGray,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
+                              style: TextStyle(color: CupertinoColors.inactiveGray, fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
                       ),
                       const Spacer(),
                       CupertinoSwitch(
-                        value: Provider.of<settingpagecontroller>(context,
-                                listen: true)
-                            .profileSwitch,
+                        value: Provider.of<settingpagecontroller>(context, listen: true).profileSwitch,
                         onChanged: (value) {
-                          Provider.of<settingpagecontroller>(context,
-                                  listen: false)
-                              .Expandprofile();
+                          Provider.of<settingpagecontroller>(context, listen: false).Expandprofile();
                         },
                       ),
                     ],
                   ),
-                  (Provider.of<settingpagecontroller>(context, listen: false)
-                          .profileSwitch)
+                  (Provider.of<settingpagecontroller>(context, listen: false).profileSwitch)
                       ? SingleChildScrollView(
                           child: Column(
                             // crossAxisAlignment: CrossAxisAlignment.center,
@@ -109,17 +99,13 @@ class cu_setting_page extends StatelessWidget {
                                         width: s.width * 0.35,
                                         child: const CupertinoTextField(
                                           textInputAction: TextInputAction.next,
-                                          suffixMode:
-                                              OverlayVisibilityMode.notEditing,
-                                          style: TextStyle(
-                                              color:
-                                                  CupertinoColors.inactiveGray),
+                                          suffixMode: OverlayVisibilityMode.notEditing,
+                                          style: TextStyle(color: CupertinoColors.inactiveGray),
                                           textAlign: TextAlign.center,
                                           suffix: Text(
                                             "Enter your name...",
                                             style: TextStyle(
-                                              color:
-                                                  CupertinoColors.inactiveGray,
+                                              color: CupertinoColors.inactiveGray,
                                             ),
                                           ),
                                           decoration: BoxDecoration(),
@@ -135,17 +121,13 @@ class cu_setting_page extends StatelessWidget {
                                         width: s.width * 0.3,
                                         child: const CupertinoTextField(
                                           textInputAction: TextInputAction.next,
-                                          suffixMode:
-                                              OverlayVisibilityMode.notEditing,
-                                          style: TextStyle(
-                                              color:
-                                                  CupertinoColors.inactiveGray),
+                                          suffixMode: OverlayVisibilityMode.notEditing,
+                                          style: TextStyle(color: CupertinoColors.inactiveGray),
                                           textAlign: TextAlign.center,
                                           suffix: Text(
                                             "Enter your bio...",
                                             style: TextStyle(
-                                              color:
-                                                  CupertinoColors.inactiveGray,
+                                              color: CupertinoColors.inactiveGray,
                                             ),
                                           ),
                                           decoration: BoxDecoration(),
@@ -222,8 +204,7 @@ class cu_setting_page extends StatelessWidget {
                 child: Row(
                   children: [
                     SizedBox(width: s.width * 0.05),
-                    const Icon(CupertinoIcons.brightness,
-                        color: CupertinoColors.inactiveGray, size: 30),
+                    const Icon(CupertinoIcons.brightness, size: 30),
                     SizedBox(width: s.width * 0.06),
                     // Theme / Change Theme
                     const Text.rich(
@@ -240,23 +221,16 @@ class cu_setting_page extends StatelessWidget {
                           // Change Theme
                           TextSpan(
                             text: 'Change Theme',
-                            style: TextStyle(
-                                color: CupertinoColors.inactiveGray,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold),
+                            style: TextStyle(color: CupertinoColors.inactiveGray, fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
                     ),
                     const Spacer(),
                     CupertinoSwitch(
-                      value: Provider.of<settingpagecontroller>(context,
-                              listen: true)
-                          .getTheme,
+                      value: Provider.of<settingpagecontroller>(context, listen: true).getTheme,
                       onChanged: (value) {
-                        Provider.of<settingpagecontroller>(context,
-                                listen: false)
-                            .changetheme();
+                        Provider.of<settingpagecontroller>(context, listen: false).changetheme();
                       },
                     ),
                   ],
