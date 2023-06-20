@@ -35,34 +35,46 @@ class cu_add_contact_page extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  height: 150,
-                  width: 150,
-                  decoration: const BoxDecoration(
-                    color: CupertinoColors.systemBlue,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(200),
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    height: 150,
+                    width: 150,
+                    decoration: const BoxDecoration(
+                      color: CupertinoColors.systemBlue,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(200),
+                      ),
                     ),
-                  ),
-                  child: Icon(
-                    size: s.height * 0.04,
-                    CupertinoIcons.camera,
-                    color: CupertinoColors.tertiarySystemBackground,
+                    child: Icon(
+                      size: s.height * 0.04,
+                      CupertinoIcons.camera,
+                      color: CupertinoColors.tertiarySystemBackground,
+                    ),
                   ),
                 ),
               ],
             ),
             SizedBox(height: s.height * 0.02),
-            const CupertinoTextField(
-              prefix: Icon(CupertinoIcons.person),
+            Container(
+              width: 330,
+              child: const CupertinoTextField(
+                prefix: Icon(CupertinoIcons.person),
+              ),
             ),
             SizedBox(height: s.height * 0.02),
-            const CupertinoTextField(
-              prefix: Icon(CupertinoIcons.phone),
+            Container(
+              width: 330,
+              child: CupertinoTextField(
+                prefix: Icon(CupertinoIcons.phone),
+              ),
             ),
             SizedBox(height: s.height * 0.02),
-            const CupertinoTextField(
-              prefix: Icon(CupertinoIcons.chat_bubble_text),
+            Container(
+              width: 330,
+              child: CupertinoTextField(
+                prefix: Icon(CupertinoIcons.chat_bubble_text),
+              ),
             ),
           ],
         ),

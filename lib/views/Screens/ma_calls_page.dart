@@ -10,18 +10,25 @@ class ma_call_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListView.builder(
-          itemCount: AllGlobalVar.name!.length,
-          itemBuilder: (context, index) =>
-              Consumer<ContactStorController>(
-                builder: (context, pro,child) => ListTile(
-                    title: Text("${pro.getAllContact[index].name}"),
-                  )
+    return Consumer<ContactStorController>(
+      builder: (context, pro, child) => Column(
+        children: [
+          SizedBox(
+            height: 500,
+            width: 400,
+            child: ListView.builder(
+              itemCount: pro.getAllContact.length,
+              itemBuilder: (context, index) => ListTile(
+                title: Text("${pro.getAllContact[index].name}"),
+                subtitle: Text("${pro.getAllContact[index].contact}"),
+                leading: const CircleAvatar(
+                  child: Icon(Icons.image),
+                ),
               ),
-        ),
-      ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

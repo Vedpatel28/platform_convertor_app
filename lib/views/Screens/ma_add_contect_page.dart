@@ -64,7 +64,7 @@ class ma_add_contact_page extends StatelessWidget {
                     },
                     onSaved: (newValue) {
                       AllGlobalVar.name = newValue;
-                      // _name = newValue;
+                      _name = newValue;
                     },
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -93,7 +93,7 @@ class ma_add_contact_page extends StatelessWidget {
                     },
                     onSaved: (newValue) {
                       AllGlobalVar.contact = newValue;
-                      // _contact = newValue;
+                      _contact = newValue;
                     },
                     maxLength: 10,
                     decoration: const InputDecoration(
@@ -123,12 +123,13 @@ class ma_add_contact_page extends StatelessWidget {
                     },
                     onSaved: (newValue) {
                       AllGlobalVar.chat = newValue;
-                      // _chat = newValue;
+                      _chat = newValue;
                     },
                     onFieldSubmitted: (value) {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
-                        Provider.of<ContactStorController>(context).addContact(name: _name!, contact: _contact!, chat: _chat!);
+                        Provider.of<ContactStorController>(context, listen: false)
+                            .addContact(name: _name!, contact: _contact!, chat: _chat!);
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text("SuccessFull Validate"),
@@ -221,7 +222,11 @@ class ma_add_contact_page extends StatelessWidget {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
-                      Provider.of<ContactStorController>(context).addContact(name: _name!, contact: _contact!, chat: _chat!);
+                      Provider.of<ContactStorController>(context, listen: false).addContact(
+                        name: _name!,
+                        contact: _contact!,
+                        chat: _chat!,
+                      );
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text("SuccessFull Validate"),

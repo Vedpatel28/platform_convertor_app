@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:platform_convertor_app/controllers/contact_controllers.dart';
 import 'package:platform_convertor_app/controllers/convertor_controller.dart';
 import 'package:platform_convertor_app/controllers/setting_controller.dart';
 import 'package:platform_convertor_app/utils/routes_utils.dart';
@@ -30,6 +31,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => settingpagecontroller(pref: pref),
+        ),
+        ListenableProvider(
+          create: (context) => ContactStorController(pref: pref),
         )
       ],
       child: DevicePreview(
