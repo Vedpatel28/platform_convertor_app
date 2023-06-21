@@ -31,7 +31,7 @@ class cu_add_contact_page extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(height: s.height * 0.15),
-            // CircalAvtar
+            // CircaAvtar
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -55,26 +55,75 @@ class cu_add_contact_page extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: s.height * 0.02),
-            Container(
-              width: 330,
-              child: const CupertinoTextField(
-                prefix: Icon(CupertinoIcons.person),
+            SizedBox(height: s.height * 0.03),
+            // Full Name
+            SizedBox(
+              width: 400,
+              child: CupertinoTextFormFieldRow(
+                placeholder: 'Full Name',
+                prefix: const Icon(CupertinoIcons.person),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  border:
+                      Border.all(color: CupertinoColors.inactiveGray, width: 1),
+                ),
               ),
             ),
-            SizedBox(height: s.height * 0.02),
-            Container(
-              width: 330,
-              child: CupertinoTextField(
-                prefix: Icon(CupertinoIcons.phone),
+            // Phone Number
+            SizedBox(
+              width: 400,
+              child: CupertinoTextFormFieldRow(
+                placeholder: 'Phone Number',
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  border:
+                      Border.all(color: CupertinoColors.inactiveGray, width: 1),
+                ),
+                prefix: const Icon(CupertinoIcons.phone),
               ),
             ),
-            SizedBox(height: s.height * 0.02),
-            Container(
-              width: 330,
-              child: CupertinoTextField(
-                prefix: Icon(CupertinoIcons.chat_bubble_text),
+            // Chat
+            SizedBox(
+              width: 400,
+              child: CupertinoTextFormFieldRow(
+                placeholder: 'Chat Conversation',
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  border:
+                      Border.all(color: CupertinoColors.inactiveGray, width: 1),
+                ),
+                prefix: const Icon(CupertinoIcons.chat_bubble_text),
               ),
+            ),
+            SizedBox(height: s.height * 0.01),
+            Row(
+              children: [
+                SizedBox(width: s.width * 0.045),
+                const Icon(
+                  CupertinoIcons.calendar,
+                  color: CupertinoColors.activeBlue,
+                ),
+                SizedBox(width: s.width * 0.04),
+                const Text("Pick Date"),
+              ],
+            ),
+            SizedBox(height: s.height * 0.02),
+            Row(
+              children: [
+                SizedBox(width: s.width * 0.045),
+                const Icon(
+                  CupertinoIcons.time,
+                  color: CupertinoColors.activeBlue,
+                ),
+                SizedBox(width: s.width * 0.04),
+                const Text("Pick Time"),
+              ],
+            ),
+            SizedBox(height: s.height * 0.02),
+            CupertinoButton(
+              color: CupertinoColors.link,
+              onPressed: () {},
+              child: const Text("SAVE"),
             ),
           ],
         ),

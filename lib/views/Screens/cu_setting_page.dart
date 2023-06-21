@@ -35,7 +35,7 @@ class cu_setting_page extends StatelessWidget {
               height:
                   (Provider.of<settingpagecontroller>(context, listen: false)
                           .profileSwitch)
-                      ? s.height * 0.42
+                      ? s.height * 0.45
                       : s.height * 0.1,
               child: Column(
                 children: [
@@ -109,22 +109,22 @@ class cu_setting_page extends StatelessWidget {
                                       Container(
                                         // height: s.height*0.1,
                                         width: s.width * 0.35,
-                                        child: const CupertinoTextField(
+                                        child: CupertinoTextFormFieldRow(
                                           textInputAction: TextInputAction.next,
-                                          suffixMode:
-                                              OverlayVisibilityMode.notEditing,
-                                          style: TextStyle(
+                                          // suffixMode:
+                                          //     OverlayVisibilityMode.notEditing,
+                                          style: const TextStyle(
                                               color:
                                                   CupertinoColors.inactiveGray),
                                           textAlign: TextAlign.center,
-                                          suffix: Text(
-                                            "Enter your name...",
-                                            style: TextStyle(
-                                              color:
-                                                  CupertinoColors.inactiveGray,
-                                            ),
-                                          ),
-                                          decoration: BoxDecoration(),
+                                          // suffix: Text(
+                                          //   "Enter your name...",
+                                          //   style: TextStyle(
+                                          //     color:
+                                          //         CupertinoColors.inactiveGray,
+                                          //   ),
+                                          // ),
+                                          decoration: const BoxDecoration(),
                                         ),
                                       ),
                                     ],
@@ -135,22 +135,21 @@ class cu_setting_page extends StatelessWidget {
                                       Container(
                                         // height: s.height*0.1,
                                         width: s.width * 0.3,
-                                        child: const CupertinoTextField(
+                                        child: CupertinoTextFormFieldRow(
                                           textInputAction: TextInputAction.next,
-                                          suffixMode:
-                                              OverlayVisibilityMode.notEditing,
-                                          style: TextStyle(
+                                          // suffixMode: OverlayVisibilityMode.notEditing,
+                                          style: const TextStyle(
                                               color:
                                                   CupertinoColors.inactiveGray),
                                           textAlign: TextAlign.center,
-                                          suffix: Text(
-                                            "Enter your bio...",
-                                            style: TextStyle(
-                                              color:
-                                                  CupertinoColors.inactiveGray,
-                                            ),
-                                          ),
-                                          decoration: BoxDecoration(),
+                                          // suffix: Text(
+                                          //   "Enter your bio...",
+                                          //   style: TextStyle(
+                                          //     color:
+                                          //         CupertinoColors.inactiveGray,
+                                          //   ),
+                                          // ),
+                                          decoration: const BoxDecoration(),
                                         ),
                                       ),
                                     ],
