@@ -88,10 +88,12 @@ class cu_setting_page extends StatelessWidget {
                           .profileSwitch)
                       ? SingleChildScrollView(
                           child: Column(
-                            // crossAxisAlignment: CrossAxisAlignment.center,
-                            // mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   SizedBox(height: s.height * 0.02),
                                   Container(
@@ -101,6 +103,11 @@ class cu_setting_page extends StatelessWidget {
                                       color: CupertinoColors.link,
                                       borderRadius: BorderRadius.circular(200),
                                     ),
+                                    child: Icon(
+                                      CupertinoIcons.photo_camera,
+                                      color: CupertinoColors.white,
+                                      size: s.height * 0.045,
+                                    ),
                                   ),
                                   SizedBox(height: s.height * 0.02),
                                   Row(
@@ -108,8 +115,9 @@ class cu_setting_page extends StatelessWidget {
                                     children: [
                                       Container(
                                         // height: s.height*0.1,
-                                        width: s.width * 0.35,
+                                        width: s.width * 0.45,
                                         child: CupertinoTextFormFieldRow(
+                                          placeholder: "Enter Your Name",
                                           textInputAction: TextInputAction.next,
                                           // suffixMode:
                                           //     OverlayVisibilityMode.notEditing,
@@ -134,8 +142,9 @@ class cu_setting_page extends StatelessWidget {
                                     children: [
                                       Container(
                                         // height: s.height*0.1,
-                                        width: s.width * 0.3,
+                                        width: s.width * 0.9,
                                         child: CupertinoTextFormFieldRow(
+                                          placeholder: "Enter Your Bio",
                                           textInputAction: TextInputAction.next,
                                           // suffixMode: OverlayVisibilityMode.notEditing,
                                           style: const TextStyle(
@@ -193,7 +202,6 @@ class cu_setting_page extends StatelessWidget {
                               Row(
                                 children: [],
                               ),*/
-
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
