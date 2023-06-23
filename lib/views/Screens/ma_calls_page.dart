@@ -1,8 +1,9 @@
 // ignore_for_file: camel_case_types
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:platform_convertor_app/controllers/contact_controllers.dart';
-import 'package:platform_convertor_app/views/modals/global_variables.dart';
 import 'package:provider/provider.dart';
 
 class ma_call_page extends StatelessWidget {
@@ -21,8 +22,8 @@ class ma_call_page extends StatelessWidget {
               itemBuilder: (context, index) => ListTile(
                 title: Text("${pro.getAllContact[index].name}"),
                 subtitle: Text("${pro.getAllContact[index].contact}"),
-                leading: const CircleAvatar(
-                  child: Icon(Icons.image),
+                leading: CircleAvatar(
+                  foregroundImage: FileImage(pro.getAllContact[index].image as File),
                 ),
               ),
             ),

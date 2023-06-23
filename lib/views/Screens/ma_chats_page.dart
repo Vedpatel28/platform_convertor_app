@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:platform_convertor_app/controllers/contact_controllers.dart';
-import 'package:platform_convertor_app/views/modals/global_variables.dart';
 import 'package:provider/provider.dart';
 
 class ma_chat_page extends StatelessWidget {

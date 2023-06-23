@@ -1,9 +1,12 @@
 // ignore_for_file: must_be_immutable, camel_case_types
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:platform_convertor_app/controllers/contact_controllers.dart';
-import 'package:platform_convertor_app/utils/routes_utils.dart';
-import 'package:platform_convertor_app/views/modals/global_variables.dart';
+import 'package:platform_convertor_app/modals/global_variables.dart';
 import 'package:provider/provider.dart';
 
 class ma_add_contact_page extends StatelessWidget {
@@ -12,6 +15,7 @@ class ma_add_contact_page extends StatelessWidget {
   String? _name;
   String? _contact;
   String? _chat;
+  String? _Image;
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -31,18 +35,34 @@ class ma_add_contact_page extends StatelessWidget {
                 // Image Add
                 Stack(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          radius: s.height * 0.08,
-                          // child: IconButton(
-                          //   onPressed: () {},
-                          //   icon: const Icon(Icons.add_a_photo_outlined, size: 40),
-                          // ),
-                        ),
-                      ],
+                    Consumer<ContactStorController>(
+                      builder: (context, pro, child) => Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: s.height * 0.08,
+                            foregroundImage: pro.image != null ? FileImage(pro.image!) : null,
+                            child: IconButton(
+                              onPressed: () async {
+                                Directory? dir = await getExternalStorageDirectory();
+
+                                File nImage = await pro.image!.copy("${dir!.path}/${_name}.jpg");
+
+                                ImagePicker picker = ImagePicker();
+
+                                XFile? img = await picker.pickImage(source: ImageSource.camera);
+
+                                if (img != null) {
+                                  pro.setImage(img: File(img.path));
+                                }
+                                Navigator.of(context).pop();
+                              },
+                              icon: const Icon(Icons.add_a_photo_outlined, size: 40),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -108,49 +128,55 @@ class ma_add_contact_page extends StatelessWidget {
                 // Chat Conversation
                 SizedBox(height: s.height * 0.02),
                 // Chat Conversation
-                SizedBox(
-                  height: s.height * 0.08,
-                  width: s.width * 0.9,
-                  child: TextFormField(
-                    initialValue: AllGlobalVar.chat,
-                    textInputAction: TextInputAction.next,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Enter Chat";
-                      } else {
-                        return null;
-                      }
-                    },
-                    onSaved: (newValue) {
-                      AllGlobalVar.chat = newValue;
-                      _chat = newValue;
-                    },
-                    onFieldSubmitted: (value) {
-                      if (formKey.currentState!.validate()) {
-                        formKey.currentState!.save();
-                        Provider.of<ContactStorController>(context, listen: false)
-                            .addContact(name: _name!, contact: _contact!, chat: _chat!);
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text("SuccessFull Validate"),
-                            backgroundColor: Colors.greenAccent,
-                          ),
-                        );
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text("Error"),
-                            backgroundColor: Colors.redAccent,
-                          ),
-                        );
-                      }
-                    },
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Chat Conversation',
-                      prefixIcon: Icon(Icons.message_outlined),
-                      errorBorder: OutlineInputBorder(),
-                      // label: Icon(Icons.perm_identity_outlined),
+                Consumer<ContactStorController>(
+                  builder: (context, pro, child) => SizedBox(
+                    height: s.height * 0.08,
+                    width: s.width * 0.9,
+                    child: TextFormField(
+                      initialValue: AllGlobalVar.chat,
+                      textInputAction: TextInputAction.next,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Enter Chat";
+                        } else {
+                          return null;
+                        }
+                      },
+                      onSaved: (newValue) {
+                        AllGlobalVar.chat = newValue;
+                        _chat = newValue;
+                      },
+                      onFieldSubmitted: (value) async {
+                        Directory? dir = await getExternalStorageDirectory();
+
+                        File nImage = await pro.image!.copy("${dir!.path}/${_name}.jpg");
+
+                        if (formKey.currentState!.validate()) {
+                          formKey.currentState!.save();
+                          Provider.of<ContactStorController>(context, listen: false)
+                              .addContact(name: _name!, contact: _contact!, chat: _chat!, image: nImage.path);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text("SuccessFull Validate"),
+                              backgroundColor: Colors.greenAccent,
+                            ),
+                          );
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text("Error"),
+                              backgroundColor: Colors.redAccent,
+                            ),
+                          );
+                        }
+                      },
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Chat Conversation',
+                        prefixIcon: Icon(Icons.message_outlined),
+                        errorBorder: OutlineInputBorder(),
+                        // label: Icon(Icons.perm_identity_outlined),
+                      ),
                     ),
                   ),
                 ),
@@ -226,6 +252,7 @@ class ma_add_contact_page extends StatelessWidget {
                         name: _name!,
                         contact: _contact!,
                         chat: _chat!,
+                        image: _Image!,
                       );
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
@@ -241,44 +268,6 @@ class ma_add_contact_page extends StatelessWidget {
                         ),
                       );
                     }
-
-                    // if (formkey.currentState!.validate()) {
-                    //   formkey.currentState!.save();
-                    //   allGlobalvar.allContact.add(
-                    //     contacts(
-                    //       firstname: allGlobalvar.Fname!,
-                    //       lastname: allGlobalvar.Lname!,
-                    //       Contact: allGlobalvar.Pnumber!,
-                    //       email: allGlobalvar.Email!,
-                    //       image: allGlobalvar.image!,
-                    //     ),
-                    //   );
-                    //   ScaffoldMessenger.of(context).showSnackBar(
-                    //     errorsnackBar(
-                    //       text: "Successfully Add Contact",
-                    //       color: Colors.green,
-                    //     ),
-                    //   );
-                    // } else {
-                    //   ScaffoldMessenger.of(context).showSnackBar(
-                    //     errorsnackBar(
-                    //         text: "Sum thing Error !!", color: Colors.redAccent),
-                    //   );
-                    // }
-                    // Navigator.of(context).pop();
-                    //
-                    // if () {
-                    //   Provider.of<ContactStorController>(context, listen: false)
-                    //       .addContact(
-                    //           name: _name!, contact: _contact!, chat: _chat!);
-                    //   ScaffoldMessenger.of(context).showSnackBar(
-                    //     const SnackBar(
-                    //       content: Text("SuccessFull Validate"),
-                    //       backgroundColor: Colors.greenAccent,
-                    //     ),
-                    //   );
-                    // } else
-                    // Navigator.of(context).pushNamed(allroutes.MaCallsPage);
                   },
                   child: const Text("Save"),
                 ),

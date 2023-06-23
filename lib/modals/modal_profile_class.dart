@@ -8,6 +8,6 @@ class ProFileInfo {
   ProFileInfo({
     required this.proName,
     required this.proBio,
-    this.proImage,
+    required this.proImage,
   });
 }

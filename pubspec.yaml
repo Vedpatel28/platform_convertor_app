@@ -38,6 +38,7 @@ dependencies:
   provider:
   shared_preferences:
   image_picker:
+  path_provider:
   google_fonts:
   device_preview:
 

@@ -6,7 +6,7 @@ class Contact {
   late String? name;
   late String? chat;
   late String? contact;
-  late File? image;
+  late String? image;
 
   Contact({
     required this.name,
