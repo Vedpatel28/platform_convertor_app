@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:platform_convertor_app/modals/modal_allcontact_class.dart';
+import 'package:platform_convertor_app/modals/modal_profile_class.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ContactStorController extends ChangeNotifier {
@@ -16,6 +17,7 @@ class ContactStorController extends ChangeNotifier {
 
   final String _sfProName = "all_Pro_Name";
   final String _sfProBio = "all_Pro_Bio";
+  final String _sfProImage = "all_Pro_Bio";
 
   List<String> _allName = [];
   List<String> _allContact = [];
@@ -26,10 +28,11 @@ class ContactStorController extends ChangeNotifier {
 
   List<String> _allProName = [];
   List<String> _allProBio = [];
+  List<String> _allProImage = [];
 
   List<Contact> allContact = [];
 
-  List<Contact> allProContact = [];
+  List<ProFileInfo> allProContact = [];
 
   // ADD Contact Page
 
@@ -56,7 +59,11 @@ class ContactStorController extends ChangeNotifier {
     return allContact;
   }
 
-  void addContact({required String name, required String contact, required String chat, required String? image}) {
+  void addContact(
+      {required String name,
+      required String contact,
+      required String chat,
+      required String? image}) {
     _allName = pref.getStringList(_sfName) ?? [];
     _allContact = pref.getStringList(_sfContact) ?? [];
     _allChat = pref.getStringList(_sfChat) ?? [];
@@ -75,28 +82,37 @@ class ContactStorController extends ChangeNotifier {
 
   // Setting Page
 
-  // List<ProFileInfo> get getProContact {
-  //   _allProName = pref.getStringList(_sfProName) ?? [];
-  //   _allProBio = pref.getStringList(_sfProBio) ?? [];
-  //
-  //   allProContact = List.generate(
-  //     _allProName.length,
-  //     (index) => ProFileInfo(
-  //       proName: _allProName,
-  //       proBio: _allProBio,
-  //     ),
-  //   );
-  //   return allProContact;
-  // }
+  List<ProFileInfo> get getProContact {
+    _allProName = pref.getStringList(_sfProName) ?? [];
+    _allProBio = pref.getStringList(_sfProBio) ?? [];
 
-  // void addProContact({required String proName, required String proBio}) {
-  //   _allProName = pref.getStringList(_sfProName) ?? [];
-  //   _allProBio = pref.getStringList(_sfProBio) ?? [];
-  //
-  //   _allName.add(proName);
-  //   _allContact.add(proBio);
-  //
-  //   pref.setStringList(_sfProName, _allProName);
-  //   pref.setStringList(_sfProBio, _allProBio);
-  // }
+    allProContact = List.generate(
+      _allProName.length,
+      (index) => ProFileInfo(
+        proName: _allProName[index],
+        proBio: _allProBio[index],
+        proImage: _allProImage[index],
+      ),
+    );
+    return allProContact;
+  }
+
+
+
+  void addProContact(
+      {required String proName,
+      required String proBio,
+      required String proImage}) {
+    _allProName = pref.getStringList(_sfProName) ?? [];
+    _allProBio = pref.getStringList(_sfProBio) ?? [];
+    _allProImage = pref.getStringList(_sfProImage) ?? [];
+
+    _allName.add(proName);
+    _allContact.add(proBio);
+    _allImage.add(proImage);
+
+    pref.setStringList(_sfProName, _allProName);
+    pref.setStringList(_sfProBio, _allProBio);
+    pref.setStringList(_sfProImage, _allProImage);
+  }
 }

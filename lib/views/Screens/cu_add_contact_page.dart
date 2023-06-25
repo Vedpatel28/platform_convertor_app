@@ -55,6 +55,7 @@ class cu_add_contact_page extends StatelessWidget {
                 ),
               ],
             ),
+            // Full Name
             SizedBox(height: s.height * 0.03),
             // Full Name
             SizedBox(

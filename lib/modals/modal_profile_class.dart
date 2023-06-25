@@ -1,9 +1,9 @@
 import 'dart:io';
 
 class ProFileInfo {
-  late String? proName;
-  late String? proBio;
-  late File? proImage;
+  String? proName;
+  String? proBio;
+  String? proImage;
 
   ProFileInfo({
     required this.proName,
